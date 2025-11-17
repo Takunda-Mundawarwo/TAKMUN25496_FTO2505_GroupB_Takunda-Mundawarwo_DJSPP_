@@ -1,12 +1,13 @@
 import { useRef, useEffect } from "react";
 import type { vantaEffectMethods } from "../types/types";
-import { useTheme } from "../stores/themeStore";
+import { useTheme } from "../hooks/useTheme";
 import "../styles/Background.css";
 
 export default function Background() {
   const fogEffect = useRef<vantaEffectMethods | null>(null);
   const backgroundRef = useRef(null);
   const theme = useTheme((state) => state.theme);
+  console.log("Theme:", theme);
 
   useEffect(() => {
     const loadVanta = async () => {
