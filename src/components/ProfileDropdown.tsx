@@ -1,7 +1,9 @@
 import ThemeToggle from "./ThemeToggle";
 
 /**
- * The Dropdown profile menu, containing the theme settings
+ * The settings dropdown component, containing the theme settings
+ *
+ * @returns {JSX.Element} - The settings menu
  */
 export function ProfileDropdown() {
   return (

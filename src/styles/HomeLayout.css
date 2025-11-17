@@ -30,6 +30,21 @@
   justify-content: space-between;
 }
 
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.nav h2 {
+  margin: 0 0 1rem 0;
+}
+
+.active-link {
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 768px) {
   .headerContainer {
     padding: 0 2rem;

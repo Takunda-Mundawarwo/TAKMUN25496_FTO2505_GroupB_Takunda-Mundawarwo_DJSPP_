@@ -5,6 +5,8 @@ import "../styles/ThemeToggle.css";
 
 /**
  * A switch component to toggle the app theme
+ *
+ * @returns {JSX.Element} - The theme toggle switch
  */
 export default function ThemeToggle() {
   const theme = useTheme((state) => state.theme);

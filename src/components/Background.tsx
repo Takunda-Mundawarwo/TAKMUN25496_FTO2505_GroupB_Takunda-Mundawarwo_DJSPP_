@@ -3,6 +3,12 @@ import type { vantaEffectMethods } from "../types/types";
 import { useTheme } from "../hooks/useTheme";
 import "../styles/Background.css";
 
+/**
+ * A component to render a vanta fog effect background
+ *
+ * @returns {JSX.Element} - A div containing a vanta effect background
+ */
+
 export default function Background() {
   const fogEffect = useRef<vantaEffectMethods | null>(null);
   const backgroundRef = useRef(null);

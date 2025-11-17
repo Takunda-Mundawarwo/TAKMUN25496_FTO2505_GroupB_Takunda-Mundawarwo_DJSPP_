@@ -15,6 +15,11 @@ if (savedTheme === "light" || savedTheme === "dark") {
   initialTheme = prefersDark ? "dark" : "light";
 }
 
+/**
+ * A custom hook for using the theme store
+ *
+ * @returns {UseBoundStore<StoreApi<ThemeState>>} - The store API to access the theme state
+ */
 export const useTheme = create<ThemeState>((set) => ({
   theme: initialTheme,
   toggleTheme: () => {
