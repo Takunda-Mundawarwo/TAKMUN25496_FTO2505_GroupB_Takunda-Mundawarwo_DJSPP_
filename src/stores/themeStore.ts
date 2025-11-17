@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
 interface ThemeState {
-  theme: string;
+  theme: "light" | "dark";
   toggleTheme: () => void;
 }
 
-let initialTheme;
+let initialTheme: "light" | "dark";
 
 //Set initial theme based on local storage || system preference
 const savedTheme = localStorage.getItem("theme");

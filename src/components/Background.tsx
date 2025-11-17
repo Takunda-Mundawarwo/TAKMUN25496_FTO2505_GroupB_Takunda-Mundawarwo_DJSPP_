@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import type { vantaEffectMethods } from "../types/types";
 import { useTheme } from "../stores/themeStore";
+import "../styles/Background.css";
 
 export default function Background() {
   const fogEffect = useRef<vantaEffectMethods | null>(null);

@@ -1,6 +1,7 @@
 import { useTheme } from "../stores/themeStore";
 import Light from "../assets/light-mode.svg";
 import Dark from "../assets/dark-mode.svg";
+import "../styles/ThemeToggle.css";
 
 export default function ThemeToggle() {
   const theme = useTheme((state) => state.theme);
