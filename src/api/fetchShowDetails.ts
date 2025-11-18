@@ -7,7 +7,7 @@ import { API_URL } from "../constants/constants";
  * @returns { Promise } - A promise that resolves to the show details
  */
 export async function fetchShowDetails(id: string): Promise<ShowDetails> {
-  const response = await fetch(`${API_URL}${id}`);
+  const response = await fetch(`${API_URL}/id/${id}`);
   if (!response.ok) {
     throw new Error(
       `Something went wrong. \nResponse status: ${response.status}`,
