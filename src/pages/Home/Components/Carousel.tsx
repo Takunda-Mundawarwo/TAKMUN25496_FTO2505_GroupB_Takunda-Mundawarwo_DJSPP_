@@ -1,6 +1,6 @@
 import { useMemo, useEffect, useRef } from "react";
-import PodcastPreview from "./PodcastPreview";
-import { usePodcasts } from "../../../hooks/usePodcasts";
+import { PodcastPreview } from "./PodcastPreview";
+import { usePodcasts } from "../hooks/usePodcasts";
 import getRecommendedPodcasts from "../utils/getRecommendedPodcasts";
 import "./Carousel.css";
 

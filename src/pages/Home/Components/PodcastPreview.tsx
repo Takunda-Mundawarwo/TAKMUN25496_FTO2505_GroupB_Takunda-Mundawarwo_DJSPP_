@@ -14,7 +14,7 @@ import "./PodcastPreview.css";
  * @returns {JSX.Element} - A Link element to the podcast's details page, wrapping an article element
  * containing podcast preview information.
  */
-export default function PodcastPreview(podcast: Podcast) {
+export function PodcastPreview(podcast: Podcast) {
   const updatedDate = new Date(podcast.updated);
   const genreIDs = podcast.genres;
 
@@ -27,7 +27,7 @@ export default function PodcastPreview(podcast: Podcast) {
           className="image"
           loading="lazy"
         />
-        <h2>{podcast.title}</h2>
+        <h3>{podcast.title}</h3>
         <h4>
           {podcast.seasons} Seasons | Updated: {updatedDate.toDateString()}
         </h4>

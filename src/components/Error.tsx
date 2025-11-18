@@ -26,12 +26,10 @@ export default function Error(props: { message: string }) {
 }
 
 const errorStyles: CSSProperties = {
-  position: "absolute",
-  top: "0",
-  left: "0",
-  height: "100%",
+  height: "calc(100vh - 6.25rem)",
   width: "100%",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  columnGap: "1rem",
 };

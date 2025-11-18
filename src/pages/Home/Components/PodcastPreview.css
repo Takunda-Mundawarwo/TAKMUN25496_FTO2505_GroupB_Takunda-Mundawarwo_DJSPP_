@@ -1,7 +1,6 @@
 .podcast {
   margin: 1rem 0.75rem;
   padding: 1rem;
-  max-width: 70vw;
   cursor: pointer;
   border-radius: 2rem;
   height: calc(100% - 2rem);
