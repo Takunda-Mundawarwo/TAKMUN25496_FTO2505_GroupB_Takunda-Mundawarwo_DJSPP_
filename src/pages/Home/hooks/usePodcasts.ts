@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchPodcasts } from "../api/fetchPodcasts";
+import { fetchPodcasts } from "../../../api/fetchPodcasts";
 
 /**
  * A custom hook for fetching all the podcasts from the backend using Tanstack query

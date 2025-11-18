@@ -1,7 +1,8 @@
 import Error from "../../components/Error.js";
 import Loading from "../../components/Loading.js";
-import { usePodcasts } from "../../hooks/usePodcasts.js";
+import { usePodcasts } from "./hooks/usePodcasts.js";
 import { Carousel } from "./Components/Carousel.js";
+import { PodcastsList } from "./Components/PodcastsList.js";
 /**
  * A component that displays the podcast app's landing page, with the ability to search for podcasts,
  * filter podcasts by genre and sort podcasts.
@@ -13,11 +14,20 @@ import { Carousel } from "./Components/Carousel.js";
  * @returns {JSX.Element} - The Home page
  */
 export default function Home() {
-  const { isPending, error } = usePodcasts();
+  const { isPending, error, data: podcasts } = usePodcasts();
 
   if (isPending) return <Loading />;
 
   if (error) return <Error message={error.message} />;
 
-  return <Carousel />;
+  if (podcasts.length === 0) {
+    return <Error message="Nothing was found here..." />;
+  }
+
+  return (
+    <>
+      <Carousel />
+      <PodcastsList />
+    </>
+  );
 }
