@@ -1,0 +1,23 @@
+.SeasonSelector {
+  margin: 2rem auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-1);
+}
+
+.SeasonDetails {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.SeasonOverview {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.SeasonOverview > img {
+  width: 30%;
+}
