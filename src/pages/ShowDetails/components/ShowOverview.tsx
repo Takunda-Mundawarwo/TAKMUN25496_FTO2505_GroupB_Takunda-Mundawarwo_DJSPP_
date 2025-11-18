@@ -18,49 +18,50 @@ export function ShowOverview() {
 
   if (showDetails)
     return (
-      <div className="PodcastOverview glass">
-        <div className="PodcastDescription">
+      <>
+        <div className="ShowOverview glass">
           <img
             src={showDetails.image}
             alt={`${showDetails.title} Cover Image`}
           />
 
-          <div>
+          <div className="ShowDescription">
             <h2>{showDetails.title}</h2>
+
+            <div className="PodcastSubdetails">
+              <h4>
+                {showDetails.seasons.length} Seasons |{" "}
+                {showDetails.seasons.reduce((accumulator, currentValue) => {
+                  return accumulator + currentValue.episodes.length;
+                }, 0)}{" "}
+                Episodes
+              </h4>
+
+              <h4>
+                Last Updated: {new Date(showDetails.updated).toDateString()}
+              </h4>
+            </div>
             <p>
               {showDetails.description.length < 300
                 ? showDetails.description
                 : `${showDetails.description.slice(0, 300)}...`}
             </p>
+            <ul className="genres">
+              {showDetails.genres ? (
+                showDetails.genres.map((genreID) => {
+                  const genre = genres.find((genre) => genre.id == genreID);
+                  return (
+                    <li key={genreID} className="genre">
+                      {genre ? genre.title : genreID}
+                    </li>
+                  );
+                })
+              ) : (
+                <></>
+              )}
+            </ul>
           </div>
         </div>
-
-        <div className="PodcastDetails">
-          <ul className="genres">
-            {showDetails.genres ? (
-              showDetails.genres.map((genreID) => {
-                const genre = genres.find((genre) => genre.id == genreID);
-                return (
-                  <li key={genreID} className="genre">
-                    {genre ? genre.title : genreID}
-                  </li>
-                );
-              })
-            ) : (
-              <></>
-            )}
-          </ul>
-
-          <h4>
-            {showDetails.seasons.length} Seasons |{" "}
-            {showDetails.seasons.reduce((accumulator, currentValue) => {
-              return accumulator + currentValue.episodes.length;
-            }, 0)}{" "}
-            Episodes
-          </h4>
-
-          <h4>Last Updated: {new Date(showDetails.updated).toDateString()}</h4>
-        </div>
-      </div>
+      </>
     );
 }

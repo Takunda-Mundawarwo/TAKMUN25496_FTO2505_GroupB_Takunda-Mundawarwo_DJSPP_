@@ -15,25 +15,26 @@ export default function EpisodePreview(props: {
   const { episodeIndex, seasonString } = props;
   const { id } = useParams();
   const { data: showDetails } = useShowDetails(id!);
-  const season = parseInt(seasonString);
+  const season = parseInt(seasonString) - 1;
 
   const episode = showDetails!.seasons[season].episodes[episodeIndex];
 
   return (
-    <div key={episode.episode} className="EpisodeOverview glass">
-      <img
-        src={showDetails!.image}
-        alt={`${showDetails!.title} Cover Image`}
-        className="seasonImage"
-        loading="lazy"
-      >
+    <div key={episode.episode} className="EpisodePreview glass">
+      <div className="seasonImage">
+        <img
+          src={showDetails!.image}
+          alt={`${showDetails!.title} Cover Image`}
+          className="seasonImg"
+          loading="lazy"
+        />
         <img
           src={PlayIcon}
           alt="Play Episode"
           className="playOverlay"
           loading="lazy"
         />
-      </img>
+      </div>
       <div>
         <h2>
           Episode {episode.episode}: {episode.title ? episode.title : ""}
@@ -43,6 +44,8 @@ export default function EpisodePreview(props: {
           alt={"Add to Favourites"}
           className="favouriteIcon"
           loading="lazy"
+          width={24}
+          height={24}
         />
         <p>
           {episode.description === undefined

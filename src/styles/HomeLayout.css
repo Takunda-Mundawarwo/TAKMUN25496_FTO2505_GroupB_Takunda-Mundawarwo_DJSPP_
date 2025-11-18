@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  width: inherit;
 }
 
 .headerTitle {
@@ -23,6 +24,7 @@
   width: 15rem;
   padding: 1rem;
   border-radius: 1rem;
+  z-index: 10 !important;
 }
 
 .dropdown > li {
