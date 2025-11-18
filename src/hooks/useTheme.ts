@@ -1,21 +1,6 @@
 import { create } from "zustand";
-
-interface ThemeState {
-  theme: "light" | "dark";
-  toggleTheme: () => void;
-}
-
-//Set initial theme based on local storage || system preference
-let initialTheme: "light" | "dark";
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light" || savedTheme === "dark") {
-  initialTheme = savedTheme;
-  document.documentElement.setAttribute("data-theme", initialTheme);
-} else {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  initialTheme = prefersDark ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", initialTheme);
-}
+import type { ThemeState } from "../types/types";
+import { getInitalTheme } from "../utils/getInitialTheme";
 
 /**
  * A custom hook for using the theme store
@@ -23,7 +8,7 @@ if (savedTheme === "light" || savedTheme === "dark") {
  * @returns {UseBoundStore<StoreApi<ThemeState>>} - The store API to access the theme state
  */
 export const useTheme = create<ThemeState>((set) => ({
-  theme: initialTheme,
+  theme: getInitalTheme(),
   toggleTheme: () => {
     set((state) => ({ theme: state.theme == "light" ? "dark" : "light" }));
   },
