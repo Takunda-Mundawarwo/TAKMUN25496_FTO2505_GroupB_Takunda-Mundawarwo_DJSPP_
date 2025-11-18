@@ -1,0 +1,44 @@
+.podcast {
+  margin: 1rem 0.75rem;
+  padding: 1rem;
+  max-width: 70vw;
+  cursor: pointer;
+  border-radius: 2rem;
+  height: calc(100% - 2rem);
+}
+
+.podcast:hover,
+.podcast:focus {
+  border: 1px solid var(--blue-3);
+  box-shadow:
+    0px 0px 10px var(--blue-2),
+    0px 0px 2px var(--blue-1);
+  background: transparent;
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  margin: auto;
+  border-radius: 1rem;
+}
+
+.genres {
+  font-size: 0.75rem;
+  list-style-type: " ";
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+}
+
+.genre {
+  color: var(--text-2);
+  background-color: var(--blue-2);
+  font-weight: 500;
+  font-size: 0.7rem;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}

@@ -10,3 +10,8 @@ export interface Podcast {
   updated: string;
   genres: number[];
 }
+
+export interface Genre {
+  id: number;
+  title: string;
+}

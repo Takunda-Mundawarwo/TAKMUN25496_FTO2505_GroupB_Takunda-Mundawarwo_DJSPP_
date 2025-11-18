@@ -1,0 +1,44 @@
+.carouselContainer {
+  padding: 2rem 0;
+  overflow-x: visible;
+  position: relative;
+}
+.carouselContainer > h2 {
+  margin: 0 2rem;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel > a {
+  flex: 0 0 80%;
+}
+
+.hideScrollBar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hideScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .carousel > a {
+    flex: 0 0 35%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel > a {
+    flex: 0 0 30%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .carousel > a {
+    flex: 0 0 19%;
+  }
+}
