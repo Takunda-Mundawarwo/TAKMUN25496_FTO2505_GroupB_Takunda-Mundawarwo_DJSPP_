@@ -9,6 +9,28 @@ export interface Podcast {
   genres: number[];
 }
 
+export interface ShowDetails extends Omit<Podcast, "seasons"> {
+  description: string;
+  seasons: Season[];
+}
+
+export interface Season {
+  season: number;
+  title: string;
+  image: string;
+  episodes: Episode[];
+}
+
+export interface Episode {
+  episode: number;
+  title: string;
+  description?: string;
+  image?: string;
+  show?: string;
+  season?: number;
+  file: string;
+}
+
 export interface Genre {
   id: number;
   title: string;
