@@ -1,5 +1,7 @@
-import Logo from "../assets/echo-logo.svg";
+import LogoLight from "../assets/logo-light.svg";
+import LogoDark from "../assets/logo-dark.svg";
 import "../styles/Loading.css";
+import { useTheme } from "../hooks/useTheme";
 
 /**
  * A component to be displayed when data if being fetched, or other loading is occurring
@@ -10,9 +12,15 @@ import "../styles/Loading.css";
  * @returns {JSX.Element}
  */
 export default function Loading() {
+  const theme = useTheme((state) => state.theme);
+
   return (
     <div className="loading">
-      <img src={Logo} alt="Echo Logo" width="48" />
+      <img
+        src={theme === "light" ? LogoLight : LogoDark}
+        alt="Echo Logo"
+        width="48"
+      />
     </div>
   );
 }
