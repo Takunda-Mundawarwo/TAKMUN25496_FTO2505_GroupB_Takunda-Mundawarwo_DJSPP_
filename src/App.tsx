@@ -5,6 +5,7 @@ import Background from "./components/Background";
 import { HomeLayout } from "./components/HomeLayout";
 import Home from "./pages/Home/Home";
 import ShowDetails from "./pages/ShowDetails/ShowDetails";
+import { Favourites } from "./pages/Favourites/Favourites";
 import "./App.css";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<Home />} />
+          <Route path="/favourites" element={<Favourites />} />
         </Route>
         <Route path="/podcasts/:id" element={<ShowDetails />} />
       </Routes>

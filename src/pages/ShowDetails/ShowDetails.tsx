@@ -32,6 +32,7 @@ export default function ShowDetails() {
     return <Error message="There is nothing here..." />;
   }
 
+  console.dir(showDetails);
   return (
     <>
       <header style={headerStyles}>

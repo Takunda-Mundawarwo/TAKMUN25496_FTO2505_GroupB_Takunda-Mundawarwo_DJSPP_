@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { genres } from "../../../constants/genreData";
 import { useShowDetails } from "../hooks/useShowDetails";
 import "./ShowOverview.css";
 
@@ -48,11 +47,10 @@ export function ShowOverview() {
             </p>
             <ul className="genres">
               {showDetails.genres ? (
-                showDetails.genres.map((genreID) => {
-                  const genre = genres.find((genre) => genre.id == genreID);
+                showDetails.genres.map((genre) => {
                   return (
-                    <li key={genreID} className="genre">
-                      {genre ? genre.title : genreID}
+                    <li key={genre} className="genre">
+                      {genre}
                     </li>
                   );
                 })

@@ -26,6 +26,12 @@ export function HomeLayout() {
         >
           <h2>Home</h2>
         </NavLink>
+        <NavLink
+          to="/favourites"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          <h2>Favourites</h2>
+        </NavLink>
       </nav>
 
       <Outlet />

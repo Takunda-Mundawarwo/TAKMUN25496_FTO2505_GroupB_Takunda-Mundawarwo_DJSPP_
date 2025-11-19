@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useShowDetails } from "../hooks/useShowDetails";
 import "./SeasonPreview.css";
-import EpisodePreview from "./EpisodePreview";
+import EpisodePreview from "../../../components/EpisodePreview";
 
 /**
  * The Season section with episodes for the show details page
