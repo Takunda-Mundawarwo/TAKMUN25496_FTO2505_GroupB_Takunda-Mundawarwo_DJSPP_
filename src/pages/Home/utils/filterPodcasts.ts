@@ -17,7 +17,6 @@ export function filterPodcasts(
 
   let searchedPodcasts;
   if (searchQuery) {
-    console.log("filtering search with" + searchQuery + " object:");
     searchedPodcasts = podcastsToFilter.filter((podcast) => {
       return podcast.title
         .toLowerCase()
