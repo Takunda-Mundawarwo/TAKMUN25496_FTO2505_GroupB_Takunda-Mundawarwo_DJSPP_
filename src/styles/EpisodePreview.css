@@ -1,0 +1,54 @@
+.EpisodePreview {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.seasonImage {
+  position: relative;
+}
+
+.seasonImg {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 1rem;
+}
+
+.playOverlay {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 30%;
+  height: 30%;
+}
+
+.playOverlay:hover {
+  width: 40%;
+  height: 40%;
+}
+
+@media (min-width: 768px) {
+  .EpisodePreview {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    align-items: center;
+    column-gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .EpisodePreview {
+    grid-template-columns: 2fr 5fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  .EpisodePreview {
+    grid-template-columns: 2fr 7fr;
+  }
+}
