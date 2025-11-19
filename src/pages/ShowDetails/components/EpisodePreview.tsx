@@ -8,6 +8,16 @@ import "./EpisodePreview.css";
 // import { useFavourites } from "../hooks/useFavourites";
 // import { useAudio } from "../hooks/useAudio";
 
+/**
+ * The Episode preview for the show details page
+ *
+ * @component
+ * @example <caption>Basic Usage</caption>
+ *  <EpisodePreview key={episode.episode} episodeIndex={index} seasonString={seasonNumber} />
+ *
+ * @param {EpisodePreviewProps} - The required props for the episode preview component
+ * @returns {JSX.Element} - The episode preview component
+ */
 export default function EpisodePreview(props: {
   episodeIndex: number;
   seasonString: string;
@@ -23,8 +33,8 @@ export default function EpisodePreview(props: {
     <div key={episode.episode} className="EpisodePreview glass">
       <div className="seasonImage">
         <img
-          src={showDetails!.image}
-          alt={`${showDetails!.title} Cover Image`}
+          src={showDetails!.seasons[season].image}
+          alt={`${showDetails!.title} Season ${season} Cover Image`}
           className="seasonImg"
           loading="lazy"
         />
@@ -58,3 +68,9 @@ export default function EpisodePreview(props: {
     </div>
   );
 }
+
+/**
+ * @typedef { Object } EpisodePreviewProps
+ * @property {number} episodeIndex - The index of the episode for the preview in the episodes array
+ * @property {string} seasonString - The string representing the season number the episode originates from
+ */
