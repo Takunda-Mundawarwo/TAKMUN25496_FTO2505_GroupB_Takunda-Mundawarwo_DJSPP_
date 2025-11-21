@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home";
 import ShowDetails from "./pages/ShowDetails/ShowDetails";
 import { Favourites } from "./pages/Favourites/Favourites";
 import "./App.css";
+import AudioPlayer from "./components/AudioPlayer";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/podcasts/:id" element={<ShowDetails />} />
       </Routes>
       {loadBackground && <Background />}
+      <AudioPlayer />
     </QueryClientProvider>
   );
 }
