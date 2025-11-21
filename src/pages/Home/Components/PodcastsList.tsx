@@ -1,10 +1,10 @@
-import { PodcastPreview } from "./PodcastPreview";
-import { PodcastFilters } from "./PodcastFilters";
-import { usePodcasts } from "../hooks/usePodcasts";
-import { PaginationControls } from "./PaginationControls";
-import { usePodcastFilters } from "../hooks/usePodcastFilters";
-import { filterPodcasts } from "../utils/filterPodcasts";
-import { PODCASTS_PER_PAGE } from "../../../constants/constants";
+import { PodcastPreview } from "./PodcastPreview.js";
+import { PodcastFilters } from "./PodcastFilters.js";
+import { usePodcasts } from "../hooks/usePodcasts.js";
+import { PaginationControls } from "./PaginationControls.js";
+import { usePodcastFilters } from "../hooks/usePodcastFilters.js";
+import { filterPodcasts } from "../utils/filterPodcasts.js";
+import { PODCASTS_PER_PAGE } from "../../../constants/constants.js";
 import "./PodcastsList.css";
 import Error from "../../../components/Error.js";
 

@@ -1,7 +1,7 @@
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
-import { Carousel } from "./components/Carousel";
-import { PodcastsList } from "./components/PodcastsList";
+import { Carousel } from "./Components/Carousel";
+import { PodcastsList } from "./Components/PodcastsList";
 import { usePodcasts } from "./hooks/usePodcasts";
 
 /**
