@@ -58,4 +58,4 @@ npm run dev
 
 ## 📈 Visit the Live site
 
-(Echo Podcasts)[https://echopodcasts.vercel.app/]
+[Echo Podcasts](https://echopodcasts.vercel.app/)
