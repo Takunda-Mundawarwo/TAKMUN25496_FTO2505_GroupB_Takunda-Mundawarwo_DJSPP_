@@ -30,15 +30,13 @@ export default function AudioPlayer() {
     );
   }, [currentTime, duration]);
 
-  if (!source) return;
-
   return (
     <div className="audioPlayer glass">
       <div className="audioEpisode">
-        <img src={source.image} alt={`${source.title} cover Image`} />
+        <img src={source!.image} alt={`${source!.title} cover Image`} />
         <div className="audioDetails">
-          <h4>{source.title}</h4>
-          <p>{source.showTitle}</p>
+          <h4>{source!.title}</h4>
+          <p>{source!.showTitle}</p>
         </div>
       </div>
 

@@ -8,11 +8,13 @@ import ShowDetails from "./pages/ShowDetails/ShowDetails";
 import { Favourites } from "./pages/Favourites/Favourites";
 import "./App.css";
 import AudioPlayer from "./components/AudioPlayer";
+import { useAudioStore } from "./hooks/useAudio";
 
 const queryClient = new QueryClient();
 
 function App() {
   const [loadBackground, setLoadBackground] = useState(false);
+  const source = useAudioStore((state) => state.source);
 
   //Load Background after the app has mounted
   useEffect(() => {
@@ -30,7 +32,7 @@ function App() {
         <Route path="/podcasts/:id" element={<ShowDetails />} />
       </Routes>
       {loadBackground && <Background />}
-      <AudioPlayer />
+      {source && <AudioPlayer />}
     </QueryClientProvider>
   );
 }
