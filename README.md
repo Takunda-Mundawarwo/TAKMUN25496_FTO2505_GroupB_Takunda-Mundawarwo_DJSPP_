@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# 🎧 Podcast App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern podcast application built with a user-friendly interface and essential features like a recommended podcasts carousel, favorites page with local storage, theme toggling, and global audio playback.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🎙️ Recommended Podcasts Carousel
+Browse through a curated list of top podcasts on the homepage.
 
-## React Compiler
+⭐ Favorites Page
+Save your favorite episodes and access them anytime — stored using local storage.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🌙 Theme Toggle
+Switch between light and dark themes for a personalized experience.
 
-## Expanding the ESLint configuration
+🔊 Global Audio Playback
+Audio player accessible at the bottom of all pages.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Play, pause, and scrub through episodes without interrupting navigation.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🌗 Theme Toggle
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Toggle button to switch between light and dark themes.
+Current theme preference can also be saved to localStorage for persistence.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Technologies Used
+
+- React + TypeScript
+
+- CSS
+
+- HTML5
+
+- Zustand
+
+- React Query
+
+## 📦 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/Takunda-Mundawarwo/TAKMUN25496_FTO2505_GroupB_Takunda-Mundawarwo_DJSPP_.git
+cd Takunda-Mundawarwo/TAKMUN25496_FTO2505_GroupB_Takunda-Mundawarwo_DJSPP_
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+Run the app
+
+```bash
+npm run dev
+```
+
+## 📈 Visit the Live site
+
+(Echo Podcasts)[https://echopodcasts.vercel.app/]
