@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import type {
   FavouritesState,
   FavouritesSortOption,
-  EpisodePreview,
+  EpisodePreviewData,
 } from "../types/types";
 
 /**
@@ -17,7 +17,7 @@ export const useFavourites = create<FavouritesState>()(
       favourites: [],
       sort: "a-z",
 
-      addFavourite: (favourite: EpisodePreview) =>
+      addFavourite: (favourite: EpisodePreviewData) =>
         set((state) => ({
           favourites: [
             ...state.favourites,

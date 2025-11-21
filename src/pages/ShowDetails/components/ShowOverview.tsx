@@ -15,6 +15,7 @@ export function ShowOverview() {
   const { id } = useParams();
   const { data: showDetails } = useShowDetails(id!);
 
+  console.log("ShowOverview:" + showDetails!.title);
   if (showDetails)
     return (
       <>

@@ -1,58 +1,29 @@
-import { useParams } from "react-router-dom";
-import { useShowDetails } from "../pages/ShowDetails/hooks/useShowDetails";
 import { useFavourites } from "../hooks/useFavourites";
+import { useAudioStore } from "../hooks/useAudio";
 import { isObjectFavourite } from "../utils/isObjectFavourite";
-import type {
-  EpisodePreview,
-  Favourite,
-  FetchEpisodePreviewProps,
-} from "../types/types";
+import { formatTime } from "../utils/formatTime";
+import type { AudioHistoryItem, EpisodePreviewData } from "../types/types";
 import AddFavIcon from "../assets/add-favourite.svg";
 import RemoveFavIcon from "../assets/favourited.svg";
 import PlayIcon from "../assets/play.svg";
+import PauseIcon from "../assets/pause.svg";
 import "../styles/EpisodePreview.css";
-// import PauseIcon from "../assets/pause.svg";
-// import { useFavourites } from "../hooks/useFavourites";
-// import { useAudio } from "../hooks/useAudio";
 
 /**
  * The Episode preview for the show details page or Favourites page
  *
  * @component
  * @example <caption>Show Details Page Usage</caption>
- *  <EpisodePreview key={episode.episode} episodeIndex={index} seasonString={seasonNumber} />
+ *  <EpisodePreview key={episode.episode} episode={} />
  * @example <caption>Favourites Page Usage</caption>
- * <EpisodePreview key={episode.episode} episodeIndex={index} seasonString={seasonNumber} />
+ * <EpisodePreview key={favourite.title} ...favourite />
  *
- * @param {EpisodePreviewProps} - The required props for the episode preview component
  * @returns {JSX.Element} - The episode preview component
  */
-export default function EpisodePreview(
-  props: Favourite | FetchEpisodePreviewProps,
-) {
-  let episode: EpisodePreview;
+export default function EpisodePreview(props: EpisodePreviewData) {
+  const episode = props;
+  console.log("EpisodePreview:" + episode.title);
 
-  //Create Object with episode preview data
-  if (isObjectFavourite(props)) {
-    episode = props;
-  } else {
-    const { episodeIndex, seasonString } = props;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { id } = useParams();
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { data: showDetails } = useShowDetails(id!);
-    const season = parseInt(seasonString) - 1;
-
-    episode = {
-      ...showDetails!.seasons[season].episodes[episodeIndex],
-      showTitle: showDetails!.title,
-      season: seasonString,
-      image: showDetails!.seasons[season].image,
-      dateAdded: undefined,
-    };
-  }
-
-  //Favourites Functionality
   const favourites = useFavourites((state) => state.favourites);
   const addFavourite = useFavourites((state) => state.addFavourite);
   const removeFavourite = useFavourites((state) => state.removeFavourite);
@@ -68,6 +39,33 @@ export default function EpisodePreview(
     }
   };
 
+  const isPlaying = useAudioStore((state) => state.isPlaying);
+  const source = useAudioStore((state) => state.source);
+  const setSource = useAudioStore((state) => state.setSource);
+  const togglePlay = useAudioStore((state) => state.togglePlay);
+  const history = useAudioStore((state) => state.history);
+
+  let isEpisodePlaying = false;
+  if (isPlaying && source && source.title === episode.title) {
+    isEpisodePlaying = true;
+  }
+
+  let episodeHistory: false | AudioHistoryItem;
+
+  if (history[episode.title]) {
+    episodeHistory = history[episode.title];
+  } else {
+    episodeHistory = false;
+  }
+
+  const handlePlayToggle = () => {
+    if (!source || source.title !== episode.title) {
+      setSource(episode);
+    } else {
+      togglePlay();
+    }
+  };
+
   return (
     <div key={episode.episode} className="EpisodePreview glass">
       <div className="seasonImage">
@@ -78,10 +76,11 @@ export default function EpisodePreview(
           loading="lazy"
         />
         <img
-          src={PlayIcon}
-          alt="Play Episode"
+          src={isEpisodePlaying ? PauseIcon : PlayIcon}
+          alt={isEpisodePlaying ? "Pause episode" : "Play episode"}
           className="playOverlay"
           loading="lazy"
+          onClick={handlePlayToggle}
         />
       </div>
       <div>
@@ -97,6 +96,13 @@ export default function EpisodePreview(
           width={24}
           height={24}
         />
+        <h4>
+          {!episodeHistory
+            ? ""
+            : episodeHistory.finished
+              ? "Finished"
+              : `${formatTime(episodeHistory.playedTill)} / ${formatTime(episodeHistory.duration)}`}
+        </h4>
         <p>
           {episode.description === undefined
             ? ""

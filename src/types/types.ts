@@ -1,4 +1,5 @@
-//Data Types
+//Data //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 export interface Podcast {
   id: number | string;
   title: string;
@@ -40,11 +41,13 @@ export interface Favourite extends Episode {
   dateAdded: Date;
 }
 
-export interface EpisodePreview extends Omit<Favourite, "dateAdded"> {
+export interface EpisodePreviewData extends Omit<Favourite, "dateAdded"> {
   dateAdded: Date | undefined;
 }
 
-//State Related Types
+// State Types /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Podcast Filters
 export interface usePodcastFiltersReturn {
   searchQuery: string;
   genreFilter: number | "All";
@@ -60,10 +63,11 @@ export interface PodcastFilters {
   page?: string;
 }
 
+// Favourites
 export interface FavouritesState {
   favourites: Favourite[];
   sort: FavouritesSortOption;
-  addFavourite: (episode: EpisodePreview) => void;
+  addFavourite: (episode: EpisodePreviewData) => void;
   removeFavourite: (episodeTitle: string) => void;
   setSort: (sort: FavouritesSortOption) => void;
 }
@@ -77,14 +81,44 @@ export type FavouritesSortOption =
 
 export type FavouriteShowGroups = Record<string, Favourite[]>;
 
+// Theme
 export interface ThemeState {
-  theme: "light" | "dark";
+  theme: Theme;
   toggleTheme: () => void;
 }
 
 export type Theme = "light" | "dark";
 
-// Prop Types
+// Audio
+export interface AudioState {
+  _audio: HTMLAudioElement | null;
+  source: EpisodePreviewData | null;
+  isPlaying: boolean;
+  currentTime: number;
+  duration: number;
+  history: ListeningHistory;
+  setSource: (episode: EpisodePreviewData) => void;
+  _play: () => void;
+  _pause: () => void;
+  togglePlay: () => void;
+  seek: (time: number) => void;
+  forwardTen: () => void;
+  replayTen: () => void;
+  _updateHistory: () => void;
+  clearHistory: () => void;
+  _bindAudioEvents: (audio: HTMLAudioElement) => void;
+}
+
+export type ListeningHistory = Record<string, AudioHistoryItem>;
+
+export interface AudioHistoryItem {
+  playedTill: number;
+  duration: number;
+  finished: boolean;
+}
+
+// Prop Types /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 export interface FetchEpisodePreviewProps {
   episodeIndex: number;
   seasonString: string;
@@ -95,5 +129,6 @@ export interface ShowGroupProps {
   favourites: Favourite[];
 }
 
-// Library Types
+// Library Types ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 export type vantaEffectMethods = { destroy: () => void };

@@ -42,14 +42,15 @@ export function SeasonPreview() {
         </div>
       </div>
 
-      {season.episodes.map((episode, index) => {
-        return (
-          <EpisodePreview
-            key={episode.episode}
-            episodeIndex={index}
-            seasonString={seasonNumber}
-          />
-        );
+      {season.episodes.map((episode) => {
+        const previewData = {
+          ...episode,
+          showTitle: showDetails!.title,
+          season: seasonNumber,
+          image: season.image,
+          dateAdded: undefined,
+        };
+        return <EpisodePreview key={episode.episode} {...previewData} />;
       })}
     </div>
   );
