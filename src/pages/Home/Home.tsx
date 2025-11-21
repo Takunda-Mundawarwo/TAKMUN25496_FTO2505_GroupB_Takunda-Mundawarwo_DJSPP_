@@ -1,8 +1,9 @@
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
-import { usePodcasts } from "./hooks/usePodcasts";
 import { Carousel } from "./components/Carousel";
 import { PodcastsList } from "./components/PodcastsList";
+import { usePodcasts } from "./hooks/usePodcasts";
+
 /**
  * A component that displays the podcast app's landing page, with the ability to search for podcasts,
  * filter podcasts by genre and sort podcasts.
