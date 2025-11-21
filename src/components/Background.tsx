@@ -13,7 +13,6 @@ export default function Background() {
   const fogEffect = useRef<vantaEffectMethods | null>(null);
   const backgroundRef = useRef(null);
   const theme = useTheme((state) => state.theme);
-  console.log("Theme:", theme);
 
   useEffect(() => {
     const loadVanta = async () => {

@@ -23,15 +23,14 @@ export default function AudioPlayer() {
   const replayTen = useAudioStore((state) => state.replayTen);
   const seek = useAudioStore((state) => state.seek);
 
-  if (!source) return;
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--range-width",
       `${(currentTime / duration) * 100}%`,
     );
   }, [currentTime, duration]);
+
+  if (!source) return;
 
   return (
     <div className="audioPlayer glass">
