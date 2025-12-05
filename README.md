@@ -1,4 +1,4 @@
-# 🎧 Podcast App
+# 🎧 Podcast App: Echo Podcasts
 
 A modern podcast application built with a user-friendly interface and essential features like a recommended podcasts carousel, favorites page with local storage, theme toggling, and global audio playback.
 
@@ -8,20 +8,17 @@ A modern podcast application built with a user-friendly interface and essential 
 Browse through a curated list of top podcasts on the homepage.
 
 ⭐ Favorites Page
-Save your favorite episodes and access them anytime — stored using local storage.
-
-🌙 Theme Toggle
-Switch between light and dark themes for a personalized experience.
+Save your favorite episodes and access them anytime.
+Favourites are stored using local storage, grouped by their shows and sortable!
 
 🔊 Global Audio Playback
 Audio player accessible at the bottom of all pages.
-
 Play, pause, and scrub through episodes without interrupting navigation.
+Listening history is saved, allowing you to continue enjoying a podcast from where you left off. 
 
 🌗 Theme Toggle
 
-Toggle button to switch between light and dark themes.
-Current theme preference can also be saved to localStorage for persistence.
+Switch between light and dark themes for a personalized experience.
 
 ## 🛠️ Technologies Used
 
